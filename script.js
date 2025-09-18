@@ -15,7 +15,7 @@ function appendNumber(number) {
 }
 
 function appendOperator(operator) {
-  if (/[+\-*/.]$/.test(currentInput)) return;
+  if (/[+\-*/.%]$/.test(currentInput)) return;
   currentInput += operator;
   updateDisplay();
 }
@@ -33,6 +33,7 @@ function deleteLast() {
 
 function calculate() {
   try {
+    // eslint-disable-next-line no-eval
     currentInput = eval(currentInput).toString();
   } catch {
     currentInput = "Error";
